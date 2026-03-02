@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Talk to Us</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="hompage-marquee">
+      <p>
+        Upcoming Event: Woven Threads - June 15 - 10pm | Contact Us For
+        Appointment!
+      </p>
+    </div>
+    <header class="logo">
+      <h1>OVERLOOK</h1>
+      <nav id="nav">
+        <a href="/">Home</a>
+        <a href="/product/index.html">Products</a>
+        <a href="/events/index.html">Events</a>
+        <a href="/trustees/index.html">Trustess</a>
+        <a href="/inquiry/index.html">Inquiry</a>
+        <div class="stat">
+          <div
+            class="stat-item"
+            onclick="openWishlist()"
+            style="cursor: pointer"
+          >
+            <span id="wishlist-count">❤️</span>
+          </div>
+          <div class="stat-item" onclick="openCart()" style="cursor: pointer">
+            <span id="cart-count">🛒</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section>
+      <img src="target-audience-for-luxury-brand.jpg" alt="" />
+
+      <div class="container">
+        <div class="header">
+          <h1>GET IN TOUCH</h1>
+          <p>We’d Love to Hear From You...</p>
+        </div>
+
+        <div class="content">
+          <div class="form-section">
+            <form id="contactForm">
+              <div class="form-group">
+                <label>Name</label>
+                <div class="input-wrapper">
+                  <i class="fa fa-user"></i>
+                  <input type="text" id="name" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Email</label>
+                <div class="input-wrapper">
+                  <i class="fa fa-envelope"></i>
+                  <input type="email" id="email" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Message</label>
+                <div class="input-wrapper">
+                  <i class="fa fa-comment"></i>
+                  <textarea id="message"></textarea>
+                </div>
+              </div>
+
+              <button type="submit">SEND MESSAGE</button>
+            </form>
+          </div>
+
+          <!-- INFO -->
+          <div class="info-section">
+            <h2>Visit Us</h2>
+
+            <div class="info-item">
+              <i class="fa fa-location-dot"></i>
+              <div>
+                123 4th Ave,<br />
+                Cape Town
+              </div>
+            </div>
+
+            <div class="info-item">
+              <i class="fa fa-envelope"></i>
+              <div>info@overlook.com</div>
+            </div>
+
+            <div class="info-item">
+              <i class="fa fa-phone"></i>
+              <div>+234 812 123 4567</div>
+            </div>
+
+            <div class="info-item">
+              <i class="fa fa-building"></i>
+              <div>
+                Cape Town<br />
+                South Africa
+              </div>
+            </div>
+
+            <div class="socials">
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-linkedin-in"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fa fa-envelope"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <h2>OVERLOOK</h2>
+      <div class="follow-btns">
+        <div class="socials">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-linkedin-in"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fa fa-envelope"></i>
+        </div>
+      </div>
+      <p>
+        <span>Privacy Policy</span>
+        <span>Terms Of Service</span>
+        <span>Returns & FAQ</span>
+        <span>Contact Support</span>
+        <span>Contact</span>
+      </p>
+      <div class="copy">
+        <p>&#169;2026 THE OVERLOOK FASHION HOUSE</p>
+      </div>
+    </footer>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          let name = document.getElementById("name").value.trim();
+          let email = document.getElementById("email").value.trim();
+          let message = document.getElementById("message").value.trim();
+
+          if (!name || !email || !message) {
+            alert("All fields are required.");
+            return;
+          }
+
+          alert("Message sent successfully!");
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <title>Overlook -Modern, Elegance, Redefined</title>
+  </head>
+  <body>
+    <div class="hompage-marquee">
+      <p>
+        Upcoming Event: Woven Threads - June 15 - 10pm | Contact Us For
+        Appointment!
+      </p>
+    </div>
+    <header id="header" class="logo header">
+      <h1>OVERLOOK</h1>
+      <nav id="nav">
+        <a href="/">Home</a>
+        <a href="product/index.html">Products</a>
+        <a href="/events/index.html">Events</a>
+        <a href="/trustees/index.html">Trustess</a>
+        <a href="/inquiry/index.html">Inquiry</a>
+        <div class="stat">
+          <div
+            class="stat-item"
+            onclick="openWishlist()"
+            style="cursor: pointer"
+          >
+            <span id="wishlist-count">❤️</span>
+          </div>
+          <div class="stat-item" onclick="openCart()" style="cursor: pointer">
+            <span id="cart-count">🛒</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section class="home">
+      <div class="hero">
+        <h1>OVERLOOK</h1>
+        <p>Modern Elegance Redefined.</p>
+        <button class="buttons">DISCOVER MORE</button>
+      </div>
+    </section>
+
+    <section class="featured">
+      <h1>FEATURED PRODUCTS</h1>
+      <div id="product-grid"></div>
+    </section>
+
+    <section class="about-us">
+      <img src="/src/IMG_7093-3-1000x600.jpg" alt="" />
+      <div class="text-about">
+        <h1>About Us</h1>
+        <hr class="line" />
+        <h2>Crafting Style, Creating Legacy</h2>
+        <p>
+          A forward-thinking fashion house blending contemporary design with
+          timeless elegance to redefine modern style.
+        </p>
+        <button>LEARN MORE</button>
+      </div>
+    </section>
+
+    <section class="trustees">
+      <h1>OUR VISIONARIES</h1>
+      <div id="trustee-grid"></div>
+      <button class="buttons">
+        <a href="/trustees/index.html">SEE ALL</a>
+      </button>
+    </section>
+
+    <footer>
+      <h2>OVERLOOK</h2>
+      <div class="follow-btns">
+        <div class="socials">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-linkedin-in"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fa fa-envelope"></i>
+        </div>
+      </div>
+      <p>
+        <span>Privacy Policy</span>
+        <span>Terms Of Service</span>
+        <span>Returns & FAQ</span>
+        <span>Contact Support</span>
+        <span>Contact</span>
+      </p>
+      <div class="copy">
+        <p>&#169;2026 THE OVERLOOK FASHION HOUSE</p>
+      </div>
+    </footer>
+    <script defer src="script.js"></script>
+  </body>
+</html>

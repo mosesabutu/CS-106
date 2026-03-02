@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fashion Showcase</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="hompage-marquee">
+      <marquee scrollamount="10">
+        Upcoming Event: Woven Threads - June 15 - 10pm | Contact Us For
+        Appointment!
+      </marquee>
+    </div>
+    <header class="logo">
+      <h1>OVERLOOK</h1>
+      <nav id="nav">
+        <a href="/">Home</a>
+        <a href="products/index.html">Products</a>
+        <a href="/events/index.html">Events</a>
+        <a href="/trustees/index.html">Trustess</a>
+        <a href="/inquiry/index.html">Inquiry</a>
+        <div class="stat">
+          <div
+            class="stat-item"
+            onclick="openWishlist()"
+            style="cursor: pointer"
+          >
+            <span id="wishlist-count">❤️</span>
+          </div>
+          <div class="stat-item" onclick="openCart()" style="cursor: pointer">
+            <span id="cart-count">🛒</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <header>
+      <h1>OUR COLLECTIONS</h1>
+    </header>
+
+    <div class="category-filters">
+      <button onclick="filterProducts('all')" class="filter-btn active">
+        ALL PRODUCTS
+      </button>
+      <button onclick="filterProducts('Clothes')" class="filter-btn">
+        CLOTHES
+      </button>
+      <button onclick="filterProducts('Shoes')" class="filter-btn">
+        SHOES
+      </button>
+      <button onclick="filterProducts('Handbags')" class="filter-btn">
+        HANDBAGS
+      </button>
+      <button onclick="filterProducts('Jewelry')" class="filter-btn">
+        JEWELRY
+      </button>
+    </div>
+
+    <div id="cart-overlay" class="overlay" onclick="closeCart()"></div>
+
+    <div id="cart-drawer" class="drawer">
+      <div class="drawer-header">
+        <h2>YOUR CART</h2>
+        <button class="close-btn" onclick="closeCart()">×</button>
+      </div>
+
+      <div id="cart-items-list"></div>
+
+      <div class="drawer-footer">
+        <div class="total-section">
+          <strong>TOTAL:</strong> <span id="cart-total">$0.00</span>
+        </div>
+        <button class="buy-now-btn" onclick="processCheckout()">
+          CHECKOUT NOW
+        </button>
+      </div>
+    </div>
+
+    <main id="product-grid" class="product-grid"></main>
+    <footer>
+      <h2>OVERLOOK</h2>
+      <div class="follow-btns">
+        <div class="socials">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-linkedin-in"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fa fa-envelope"></i>
+        </div>
+      </div>
+      <p>
+        <span>Privacy Policy</span>
+        <span>Terms Of Service</span>
+        <span>Returns & FAQ</span>
+        <span>Contact Support</span>
+        <span>Contact</span>
+      </p>
+      <div class="copy">
+        <p>&#169;2026 THE OVERLOOK FASHION HOUSE</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

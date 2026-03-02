@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  background-color: #f6f1eb;
+  color: #2c2a28;
+  letter-spacing: 1px;
+  overflow-x: hidden;
+}
+
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #2c2a28;
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+}
+
+header.logo {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c2a28;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  padding: 10px;
+  z-index: 1000;
+  h1 {
+    color: #f6f1eb;
+    letter-spacing: 0.1cm;
+    font-weight: 500;
+    margin-left: 46px;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-right: 24px;
+  a {
+    text-decoration: none;
+    color: #f6f1eb;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 5px;
+  }
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #f6f1eb;
+  }
+}
+
+.hompage-marquee {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 5vh;
+  background-color: #d4c092;
+}
+
+.home {
+  background-image: url("./src/1765190208191-one-hpcorpo-hero-d-5760x2520px-2_2520x5760.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #f6f1eb;
+}
+.hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80dvh;
+  margin-left: 56px;
+  gap: 32px;
+  h1 {
+    font-size: 120px;
+    color: #2c2a28;
+  }
+  p {
+    color: #2c2a28;
+    font-size: 50px;
+  }
+}
+.buttons {
+  background-color: #d4c092;
+  color: #2c2a28;
+  font-size: 30px;
+  padding: 24px;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+.buttons:hover {
+  background-color: #b4a37e;
+}
+.buttons:active {
+  background-color: #e2d7c0;
+}
+
+.featured {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5rem;
+  h1 {
+    font-size: 50px;
+  }
+
+  #product-grid {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: nowrap;
+  }
+
+  .product-card {
+    width: 25rem;
+    height: 40rem;
+    transition:
+      transform 0.1s ease,
+      box-shadow 0.1s ease;
+    background: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    will-change: transform;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .product-card img {
+    width: 95%;
+    height: 90%;
+    display: block;
+    overflow: hidden;
+
+    border-radius: 5px;
+    object-fit: cover;
+  }
+
+  .product-info {
+    text-align: center;
+    padding-top: 15px;
+  }
+
+  .product-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 5px;
+  }
+
+  .product-info p {
+    margin: 5px 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+}
+
+.about-us {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  padding: 5rem;
+
+  .text-about {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    h1 {
+      font-size: 7rem;
+    }
+    .line {
+      height: 3px;
+      width: 30rem;
+      border: 0;
+      background-color: #d4c092;
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    button {
+      background-color: #d4c092;
+      color: #2c2a28;
+      font-size: 30px;
+      padding: 24px;
+      text-decoration: none;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      width: 20rem;
+    }
+    button:hover {
+      background-color: #b4a37e;
+    }
+    button:active {
+      background-color: #e2d7c0;
+    }
+  }
+
+  img {
+    width: 50rem;
+    height: 40rem;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+}
+.trustees {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  min-height: 100dvh;
+
+  h1 {
+    font-size: 50px;
+  }
+
+  #trustee-grid {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: nowrap;
+  }
+
+  .trustee-card {
+    width: 20rem;
+    height: 25rem;
+    border-radius: 5px;
+    transition:
+      transform 0.1s ease,
+      box-shadow 0.1s ease;
+    background: aliceblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    will-change: transform;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .trustee-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .trustee-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: hidden;
+    /* border-radius: 50%; */
+    object-fit: cover;
+  }
+
+  .trustee-info {
+    text-align: center;
+    padding-top: 15px;
+  }
+
+  .trustee-info h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .trustee-info p {
+    margin: 5px 0 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #333;
+  }
+
+  button a {
+    text-decoration: none;
+    color: #2c2a28;
+  }
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: #2c2a28;
+  color: #f6f1eb;
+  gap: 2rem;
+  padding: 2rem;
+  h1,
+  h2 {
+    color: #f6f1eb;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+  }
+
+  .follow-btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .socials i {
+    width: 25px;
+    height: 25px;
+    background: #f6f1eb;
+    color: #2c2a28;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .socials i:hover {
+    background: #b4a37e;
+  }
+
+  span {
+    cursor: pointer;
+    margin: 20px;
+  }
+
+  .copy {
+    margin: 0px;
+  }
+}
