@@ -39,6 +39,7 @@ h2 {
 section {
   width: 100dvw;
   overflow-x: hidden;
+  margin-bottom: 4rem;
 }
 
 .hompage-marquee {
