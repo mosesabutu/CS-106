@@ -132,7 +132,7 @@ textarea:focus {
   border-color: #333;
 }
 
-button {
+form button {
   width: 100%;
   padding: 12px;
   background: #111;

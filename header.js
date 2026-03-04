@@ -4,7 +4,7 @@ class Header extends HTMLElement {
       <style>
 :host {
     display: block;
-    width: 100%;
+    width: 100dvw;
     z-index: 10000;
 }
         header.logo {
@@ -14,7 +14,7 @@ class Header extends HTMLElement {
           background-color: #2c2a28;
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           height: 7vh;
-          width: 100vw;
+          width: 100dvw;
         }
 
         header.logo h1 {
@@ -45,12 +45,14 @@ class Header extends HTMLElement {
           background: none;
           border: none;
           margin-right: 2rem;
-
           color: #d4c092;
           font-size: 1.5rem;
           cursor: pointer;
           z-index: 10001;
         }
+          #menuClose{
+          display: none;
+          }
 
         .nav-overlay {
           display: none;
@@ -91,7 +93,7 @@ class Header extends HTMLElement {
             z-index: 99999;
 
             #menuClose{
-             background: none;
+          background: none;
           border: none;
           margin-right: 2rem;
 
