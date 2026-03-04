@@ -92,11 +92,3 @@ trustees.forEach((member) => {
 
   trusteesGrid.appendChild(card);
 });
-const toggle = document.getElementById("menuToggle");
-const nav = document.getElementById("nav");
-const icon = toggle.querySelector("i");
-
-toggle.addEventListener("click", () => {
-  const isActive = nav.classList.toggle("active");
-  icon.className = isActive ? "fa-solid fa-xmark" : "fa-solid fa-bars";
-});

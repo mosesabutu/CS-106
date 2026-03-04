@@ -103,8 +103,8 @@ class Header extends HTMLElement {
             }
             }
             
-            nav.active {
-            display: flex; 
+            nav#nav.active {
+            display: flex !important; 
 
             }
             nav button{
