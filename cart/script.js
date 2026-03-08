@@ -109,10 +109,12 @@ export function updateBadge() {
 
 export function showCart() {
   const cart = getCart();
-  const lastItem = cart.at(-1);
 
   const wrapper = document.createElement("div");
-  wrapper.id = "#cartDrawer";
+  wrapper.id = "wrapper";
+
+  const cartWrapper = document.createElement("div");
+  cartWrapper.id = "cartWrapper";
 
   cart.forEach((item) => {
     const subtotal = item.price * item.quantity;
@@ -134,21 +136,22 @@ export function showCart() {
       </div>
     `;
 
-    wrapper.appendChild(card);
-    return cart;
+    cartWrapper.appendChild(card);
   });
 
   const summary = document.createElement("div");
   summary.id = "summary";
   summary.innerHTML = `
-    <h3>Cart Subtotal:{${getCartCount()}} $${calculateSubtotal().toFixed(2)}</h3>
-    <h3 class = "toHide">Shipping: $${calculateShipping().toFixed(2)}</h3>
-    <h2 class = "toHide">Total: $${calculateTotal().toFixed(2)}</h2>
+  <br>
+    <p>Subtotal: {${getCartCount()} items} </p>
+     <span>$${calculateSubtotal().toFixed(2)}</span> 
+    <p class = "toHide">Shipping: $${calculateShipping().toFixed(2)}</p>
+    <h2 class = "toHide">Total:    $${calculateTotal().toFixed(2)}</h2>
   `;
-
+  wrapper.appendChild(cartWrapper);
   wrapper.appendChild(summary);
 
-  return { wrapper, lastItem };
+  return wrapper;
 }
 
 export function refreshCartUI() {

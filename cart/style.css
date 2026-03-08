@@ -11,12 +11,12 @@
 }
 
 body {
+  overflow-x: hidden;
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   background-color: #f6f1eb;
   color: #2c2a28;
   letter-spacing: 1px;
-  overflow-x: hidden;
 }
 
 header-main {
@@ -49,10 +49,80 @@ h3 {
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 2rem;
+  margin: 2rem;
+  overflow-x: hidden;
 }
-.cart-header {
+#wrapper {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #eee;
+  justify-content: center;
+  flex-direction: column;
+}
+#cartWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+#cartItems {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 18rem;
+  margin: 2rem;
+
+  img {
+    height: 6rem;
+    width: 6rem;
+    object-fit: cover;
+  }
+  .itemInfo {
+    button {
+      border: none;
+      padding: 0.2rem;
+      /* background-color: #d4c092; */
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+  }
+}
+#summary {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 500;
+  gap: 0.7rem;
+  .toHide {
+    display: none;
+  }
+}
+
+.cartFooter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  gap: 2rem;
+  flex-wrap: wrap;
+  button {
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: none;
+    background-color: #d4c092;
+    color: #2c2a28;
+    padding: 1rem;
+    a {
+      text-decoration: none;
+      color: #2c2a28;
+    }
+  }
+  button:hover {
+    background-color: #eed8a5;
+  }
+  button:active {
+    background-color: #796e54;
+  }
 }
