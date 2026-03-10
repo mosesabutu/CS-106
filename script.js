@@ -28,17 +28,17 @@ const trustee = [
   {
     img: "trustees/images/moses.webp",
     name: "MOSES ABUTU",
-    position: "CEO/Founder",
+    position: "Chief Executive Officer (CEO)",
   },
   {
     img: " trustees/images/ayomide.webp",
     name: "AYOMIDE ALLEN",
-    position: "CCO/Co-Founder",
+    position: "Chief Creative Officer (CCO)",
   },
   {
     img: "trustees/images/olushola.webp",
     name: "OLUSHOLA MAJESTY",
-    position: "Lead Sotware Engineer",
+    position: "Chief Operating Officer (COO)",
   },
   {
     img: "trustees/images/praise.webp",
