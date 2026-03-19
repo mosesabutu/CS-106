@@ -161,7 +161,7 @@ section {
   font-weight: 600;
   border: none;
   cursor: pointer;
-  z-index: 100000;
+  z-index: 10;
   a {
     text-decoration: none;
     color: #2c2a28;
