@@ -17,7 +17,7 @@ const trustees = [
   {
     name: "OLUSHOLA MAJESTY",
     position: "Chief Operating Officer (COO)", // member3
-    email: "o.majesty@miva.edu.ng",
+    email: "m.olushola3955@miva.edu.ng",
     matric: "2025/A/CSC/0162",
     img: "images/olushola.webp",
   },
@@ -36,6 +36,20 @@ const trustees = [
     img: "images/ose.webp",
   },
   {
+    name: "OMOROGBE ESE",
+    position: "Vice President Of Operations", // member 7
+    email: "e.onorogbe4577@miva.edu.ng",
+    matric: "2025/A/CSC/0088",
+    img: "images/ese.webp",
+  },
+  {
+    name: "TENUMAH ISAIAH",
+    position: "Creative Director", // member 7
+    email: "i.tenumah8465@miva.edu.ng",
+    matric: "2025/A/CSC/0127",
+    img: "images/alvin.webp",
+  },
+  {
     name: "MUHAMMAD AHMAD",
     position: "Lead Software Engineer", // member 6
     email: "m.ahmad4386@miva.edu.ng",
@@ -47,7 +61,7 @@ const trustees = [
     position: "Lead Sales", // member 8
     email: "m.tom3391@miva.edu.ng",
     matric: "2025/A/DSC/0026",
-    img: "images/tom.png",
+    img: "images/tom.webp",
   },
   {
     name: "EMMANUEL ADEWOYE",
@@ -65,8 +79,8 @@ const trustees = [
   },
   {
     name: "VICTOR NNAH",
-    position: "Human Resources", // member 7
-    email: "V.nnah3519@miva.edu.ng",
+    position: "Director Of Human Resources", // member 7
+    email: "v.nnah3519@miva.edu.ng",
     matric: "2025/A/CSC/0319",
     img: "images/victor.webp",
   },
