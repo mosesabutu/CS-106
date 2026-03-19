@@ -379,10 +379,7 @@ function renderProducts(productsToDisplay) {
 
     const sizeHTML = product.sizes
       ? product.sizes
-          .map(
-            (s) =>
-              `<button class="size-chip" onclick="selectSize(this)">${s}</button>`,
-          )
+          .map((s) => `<button class="size-chip" onclick="">${s}</button>`)
           .join("")
       : '<span class="size-chip">One Size</span>';
 
@@ -399,7 +396,6 @@ function renderProducts(productsToDisplay) {
                 <p class="price">${"$" + product.price}</p>
             </div>
             <div class="button-group">
-                <button class="buy-now-btn" onclick="buyNow('${product.name}')">BUY NOW</button>
                 <button class="shop-btn" onclick="addProduct('${product.name}', '${product.price}', '${product.img}')">ADD TO CART</button>
             </div>
         `;
