@@ -385,7 +385,6 @@ function renderProducts(productsToDisplay) {
 
     card.innerHTML = `
             <div class="img-container">
-                <button class="wishlist-btn" onclick="updateWishlist(this, '${product.name}')">♡</button>
                 <img src="${product.img}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/250?text=Image+Missing'">
             </div>
             <div class="product-info">
