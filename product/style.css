@@ -169,11 +169,12 @@ header.ctr h1 {
 }
 
 .shop-btn {
-  background-color: transparent;
+  background-color: #d4c092;
   color: #000;
-  border: 1px solid #000;
+  border: none;
+  font-weight: bold;
   padding: 8px;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   cursor: pointer;
 }
 
