@@ -78,75 +78,237 @@ trustee.forEach((truste) => {
 });
 
 const hero = document.getElementById("hero");
+
 const images = ["src/1.jpg", "src/2.jpg", "src/3.jpg", "src/4.jpg"];
+
 let currentIndex = 0;
 let autoCycle = null;
+let isPaused = false;
+let isSliderActive = false;
 
-// 1. The Core Update Function
-function updateBg() {
-  const nextImageUrl = images[currentIndex];
-  const tempImage = new Image();
-  tempImage.src = nextImageUrl;
-  tempImage.onload = () => {
-    hero.style.backgroundImage = `url(${nextImageUrl})`;
-  };
+// elements (only exist on mobile)
+let currentSlide, nextSlide, dotsContainer;
+
+// drag state
+let startX = 0;
+let deltaX = 0;
+let isDragging = false;
+
+const isMobileView = () => window.innerWidth <= 850;
+
+// --------------------
+// INIT / DESTROY
+// --------------------
+function initMobileSlider() {
+  if (isSliderActive) return;
+  isSliderActive = true;
+
+  currentSlide = document.createElement("div");
+  currentSlide.className = "slide current";
+
+  nextSlide = document.createElement("div");
+  nextSlide.className = "slide next";
+
+  dotsContainer = document.createElement("div");
+  dotsContainer.className = "slider-dots";
+
+  hero.appendChild(currentSlide);
+  hero.appendChild(nextSlide);
+  hero.appendChild(dotsContainer);
+
+  currentSlide.style.backgroundImage = `url(${images[currentIndex]})`;
+
+  createDots();
+  updateDots();
+  startAutoCycle();
 }
 
-// 2. Logic to Start/Stop the slider based on screen size
-function handleResponsiveness() {
-  const isMobile = window.innerWidth <= 850;
+function destroyMobileSlider() {
+  if (!isSliderActive) return;
+  isSliderActive = false;
 
-  if (isMobile && !autoCycle) {
-    // Start Mobile Slider
-    autoCycle = setInterval(() => {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateBg();
-    }, 5000);
-  } else if (!isMobile && autoCycle) {
-    // Stop Slider for Desktop & Reset to CSS default
-    clearInterval(autoCycle);
-    autoCycle = null;
-    hero.style.backgroundImage = ""; // Removes inline style so CSS takes over
+  stopAutoCycle();
+
+  currentSlide.remove();
+  nextSlide.remove();
+  dotsContainer.remove();
+}
+
+// --------------------
+// DOTS
+// --------------------
+function createDots() {
+  dotsContainer.innerHTML = "";
+
+  images.forEach((_, index) => {
+    const dot = document.createElement("span");
+
+    dot.addEventListener("click", () => {
+      if (!isSliderActive) return;
+
+      currentIndex = index;
+      currentSlide.style.backgroundImage = `url(${images[currentIndex]})`;
+      updateDots();
+
+      stopAutoCycle();
+      startAutoCycle();
+    });
+
+    dotsContainer.appendChild(dot);
+  });
+}
+
+function updateDots() {
+  if (!isSliderActive) return;
+
+  Array.from(dotsContainer.children).forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentIndex);
+  });
+}
+
+// --------------------
+// AUTO CYCLE
+// --------------------
+function startAutoCycle() {
+  if (autoCycle || !isSliderActive) return;
+
+  autoCycle = setInterval(() => {
+    if (isPaused || !isSliderActive) return;
+    goToSlide("next");
+  }, 5000);
+}
+
+function stopAutoCycle() {
+  clearInterval(autoCycle);
+  autoCycle = null;
+}
+
+// --------------------
+// SLIDE CHANGE
+// --------------------
+function goToSlide(direction) {
+  if (!isSliderActive) return;
+
+  const newIndex =
+    direction === "next"
+      ? (currentIndex + 1) % images.length
+      : (currentIndex - 1 + images.length) % images.length;
+
+  nextSlide.style.backgroundImage = `url(${images[newIndex]})`;
+
+  nextSlide.style.transform =
+    direction === "next" ? "translateX(100%)" : "translateX(-100%)";
+
+  requestAnimationFrame(() => {
+    currentSlide.style.transition = "transform 0.4s ease";
+    nextSlide.style.transition = "transform 0.4s ease";
+
+    currentSlide.style.transform =
+      direction === "next" ? "translateX(-100%)" : "translateX(100%)";
+
+    nextSlide.style.transform = "translateX(0)";
+  });
+
+  setTimeout(() => {
+    currentSlide.style.transition = "";
+    nextSlide.style.transition = "";
+
+    currentSlide.style.transform = "translateX(0)";
+    currentSlide.style.backgroundImage = `url(${images[newIndex]})`;
+
+    nextSlide.style.transform = "";
+
+    currentIndex = newIndex;
+    updateDots();
+  }, 400);
+}
+
+// --------------------
+// DRAG SYSTEM
+// --------------------
+hero.addEventListener("touchstart", (e) => {
+  if (!isSliderActive) return;
+
+  startX = e.touches[0].clientX;
+  isDragging = true;
+  isPaused = true;
+
+  currentSlide.style.transition = "none";
+  nextSlide.style.transition = "none";
+});
+
+hero.addEventListener("touchmove", (e) => {
+  if (!isDragging || !isSliderActive) return;
+
+  const currentX = e.touches[0].clientX;
+  deltaX = currentX - startX;
+
+  const resistance = 0.4;
+  const move = deltaX * resistance;
+
+  currentSlide.style.transform = `translateX(${move}px)`;
+
+  if (deltaX < 0) {
+    nextSlide.style.backgroundImage = `url(${images[(currentIndex + 1) % images.length]})`;
+    nextSlide.style.transform = `translateX(${window.innerWidth + move}px)`;
+  } else {
+    nextSlide.style.backgroundImage = `url(${images[(currentIndex - 1 + images.length) % images.length]})`;
+    nextSlide.style.transform = `translateX(${-window.innerWidth + move}px)`;
+  }
+});
+
+hero.addEventListener("touchend", () => {
+  if (!isDragging || !isSliderActive) return;
+
+  isDragging = false;
+
+  const threshold = window.innerWidth * 0.2;
+
+  currentSlide.style.transition = "transform 0.3s ease";
+  nextSlide.style.transition = "transform 0.3s ease";
+
+  if (deltaX < -threshold) {
+    currentSlide.style.transform = "translateX(-100%)";
+    nextSlide.style.transform = "translateX(0)";
+    currentIndex = (currentIndex + 1) % images.length;
+  } else if (deltaX > threshold) {
+    currentSlide.style.transform = "translateX(100%)";
+    nextSlide.style.transform = "translateX(0)";
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+  } else {
+    currentSlide.style.transform = "translateX(0)";
+    nextSlide.style.transform = "";
+    isPaused = false;
+    return;
+  }
+
+  setTimeout(() => {
+    currentSlide.style.transition = "";
+    nextSlide.style.transition = "";
+
+    currentSlide.style.transform = "translateX(0)";
+    currentSlide.style.backgroundImage = `url(${images[currentIndex]})`;
+
+    nextSlide.style.transform = "";
+
+    updateDots();
+
+    isPaused = false;
+    stopAutoCycle();
+    startAutoCycle();
+  }, 300);
+});
+
+// --------------------
+// RESPONSIVENESS
+// --------------------
+function handleResponsiveness() {
+  if (isMobileView()) {
+    initMobileSlider();
+  } else {
+    destroyMobileSlider();
   }
 }
 
-// Initialize on load and on resize
 window.addEventListener("resize", handleResponsiveness);
 handleResponsiveness();
-
-// 3. Swipe Logic (Only active if on mobile)
-let touchStartX = 0;
-hero.addEventListener(
-  "touchstart",
-  (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  },
-  { passive: true },
-);
-
-hero.addEventListener(
-  "touchend",
-  (e) => {
-    if (window.innerWidth > 850) return; // Ignore swipes on desktop
-
-    const touchEndX = e.changedTouches[0].screenX;
-    const swipeThreshold = 50;
-
-    if (touchStartX - touchEndX > swipeThreshold) {
-      currentIndex = (currentIndex + 1) % images.length;
-    } else if (touchEndX - touchStartX > swipeThreshold) {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-    } else {
-      return;
-    }
-
-    updateBg();
-    // Reset timer on manual swipe
-    clearInterval(autoCycle);
-    autoCycle = setInterval(() => {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateBg();
-    }, 5000);
-  },
-  { passive: true },
-);

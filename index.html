@@ -26,23 +26,30 @@
     <title>Overlook -Modern, Elegance, Redefined</title>
     <script type="module" src="header.js"></script>
     <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
-    <div class="hompage-marquee">
-      <marquee scrollamount="10">
-        Upcoming Event: Woven Threads - June 15 - 10pm | Contact Us For
-        Appointment!
-      </marquee>
-    </div>
+    <marquee-banner speed="30">
+      Upcoming Event: Woven Threads - June 15 - 10pm | Contact Us For
+      Appointment!
+    </marquee-banner>
     <header-main></header-main>
     <section class="home" id="hero">
+      <div class="slide current"></div>
+      <div class="slide next"></div>
+      <div class="slider-dots" id="sliderDots"></div>
       <div class="hero">
         <h1>OVERLOOK</h1>
         <p>Modern Elegance Redefined.</p>
-        <button class="buttons">SHOP NOW</button>
+        <button class="buttons">
+          <a href="./product/index.html">SHOP NOW</a>
+        </button>
       </div>
     </section>
 

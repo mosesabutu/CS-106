@@ -26,17 +26,19 @@
     />
     <script type="module" src="../header.js"></script>
     <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+      window.va =
+        window.va ||
+        function () {
+          (window.vaq = window.vaq || []).push(arguments);
+        };
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
   </head>
   <body>
-    <div class="hompage-marquee">
-      <marquee scrollamount="10">
-        Upcoming Event: Woven Threads - June 15 - 10pm | Contact Us For
-        Appointment!
-      </marquee>
-    </div>
+    <marquee-banner speed="30">
+      Upcoming Event: Woven Threads - June 15 - 10pm | Contact Us For
+      Appointment!
+    </marquee-banner>
     <header-main></header-main>
     <main id="cart-page" class="cart">
       <!-- <h2><span id="cartCount"></span> ITEMS IN YOUR CART</h2>

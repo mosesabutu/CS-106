@@ -311,3 +311,63 @@ class Footer extends HTMLElement {
 }
 
 customElements.define("footer-main", Footer);
+
+class MarqueeBanner extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+
+  connectedCallback() {
+    const text = this.innerHTML.trim();
+    const speed = this.getAttribute("speed") || 30;
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          display: block;
+          overflow: hidden;
+          white-space: nowrap;
+          font-family: inherit;
+          width: 100vw;
+          height: 4vh;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+         background-color: #d4c092;
+        
+        }
+
+        .track {
+          display: inline-block;
+          animation: scroll linear infinite;
+          animation-duration: ${speed}s;
+          padding-left: 100%;
+        }
+
+        .track span {
+          display: inline-block;
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        :host(:hover) .track {
+          animation-play-state: paused;
+        }
+      </style>
+
+      <div class="track">
+        <span>${text}</span>
+      </div>
+    `;
+  }
+}
+
+customElements.define("marquee-banner", MarqueeBanner);

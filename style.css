@@ -42,16 +42,6 @@ section {
   margin-bottom: 4rem;
 }
 
-.hompage-marquee {
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 5vh;
-  background-color: #d4c092;
-}
-
 .home {
   background-image: url("./src/1765190208191-one-hpcorpo-hero-d-5760x2520px-2_2520x5760.webp");
   background-size: cover;
@@ -76,6 +66,91 @@ section {
     font-size: 50px;
   }
 }
+#hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.3)
+  );
+  z-index: 0;
+}
+#hero {
+  position: relative;
+  overflow: hidden;
+}
+
+#hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 0;
+}
+
+#hero.fade::after {
+  opacity: 1;
+}
+
+#hero {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+
+/* current sits on top */
+.slide.current {
+  z-index: 2;
+}
+
+/* next sits under */
+.slide.next {
+  z-index: 1;
+}
+.slider-dots {
+  position: absolute;
+  bottom: 2rem;
+  left: 39%;
+  display: flex;
+  gap: 1rem;
+  padding: 10px 12px;
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+
+  box-shadow:
+    0 6px 25px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  z-index: 2;
+}
+
+.slider-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.25s ease;
+}
+
+.slider-dots .active {
+  background: #fff;
+  transform: scale(1.4);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
 .buttons {
   background-color: #d4c092;
   color: #2c2a28;
@@ -86,6 +161,11 @@ section {
   font-weight: 600;
   border: none;
   cursor: pointer;
+  z-index: 100000;
+  a {
+    text-decoration: none;
+    color: #2c2a28;
+  }
 }
 .buttons:hover {
   background-color: #b4a37e;
