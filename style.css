@@ -198,7 +198,6 @@ section {
 
   .product-card {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-
     width: 25rem;
     height: 40rem;
     transition:
@@ -256,12 +255,14 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
   gap: 3rem;
   padding: 5rem;
   background-color: var(--primary-black);
   color: var(--soft-grey);
 
   .text-about {
+    width: 50%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -307,7 +308,7 @@ section {
   }
 
   img {
-    width: 50rem;
+    width: 50%;
     height: 50rem;
     object-fit: cover;
     border-radius: 5px;
