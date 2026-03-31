@@ -263,7 +263,7 @@ section {
     display: flex;
     align-items: stretch;
     gap: 4rem;
-    max-width: 2200px;
+    max-width: 1700px;
     width: 100%;
   }
   .text-about {
