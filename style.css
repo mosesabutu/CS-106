@@ -259,6 +259,7 @@ section {
   padding: 5rem 2rem;
   background-color: var(--primary-black);
   color: var(--soft-grey);
+
   .inner {
     display: flex;
     align-items: stretch;
@@ -285,11 +286,11 @@ section {
     }
 
     h2 {
-      font-size: 50px;
+      font-size: 3rem;
       color: var(--soft-grey);
     }
     p {
-      font-size: 24px;
+      font-size: 2rem;
       line-height: 1.2;
     }
     button {
@@ -319,6 +320,21 @@ section {
     height: auto;
     object-fit: cover;
     border-radius: 5px;
+  }
+}
+@media (max-width: 1450px) {
+  .about-us .inner {
+    max-width: 1300px;
+    gap: 2.5rem;
+
+    .text-about {
+      p {
+        font-size: 1rem;
+      }
+      h2 {
+        font-size: 2em;
+      }
+    }
   }
 }
 
