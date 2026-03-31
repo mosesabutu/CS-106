@@ -193,13 +193,13 @@ section {
     gap: 2rem;
     padding: 2rem;
     flex-wrap: wrap;
-    width: 100dvw;
+    width: 100%;
   }
 
   .product-card {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     width: 25rem;
-    height: 40rem;
+    height: 30rem;
     transition:
       transform 0.1s ease,
       box-shadow 0.1s ease;
@@ -220,8 +220,8 @@ section {
   }
 
   .product-card img {
-    width: 95%;
-    height: 90%;
+    width: 100%;
+    height: auto;
     display: block;
     overflow: hidden;
 
@@ -322,6 +322,13 @@ section {
   }
 }
 @media (max-width: 1450px) {
+  .featured {
+    gap: 2rem;
+    .product-card {
+      width: 19rem;
+      height: 25rem;
+    }
+  }
   .about-us .inner {
     max-width: 1300px;
     gap: 2.5rem;
