@@ -321,12 +321,12 @@ section {
     border-radius: 5px;
   }
 }
-@media (max-width: 1350px) {
+@media (max-width: 1450px) {
   .featured {
     gap: 2rem;
     .product-card {
-      width: 19rem;
-      height: 25rem;
+      width: 17rem;
+      height: 22rem;
     }
   }
   .about-us .inner {
